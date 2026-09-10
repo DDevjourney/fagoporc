@@ -1,0 +1,142 @@
+.approach {
+  background: var(--fp-plum);
+  color: var(--fp-paper);
+  position: relative;
+  overflow: hidden;
+}
+
+.approach__grid {
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 4rem);
+  grid-template-columns: 1fr;
+  position: relative;
+  z-index: 1;
+}
+
+@media (min-width: 900px) {
+  .approach__grid {
+    grid-template-columns: 5fr 6fr;
+    align-items: start;
+  }
+}
+
+.approach__eyebrow {
+  margin: 0 0 1.25rem;
+  color: var(--fp-yellow);
+}
+
+.approach__title {
+  margin: 0 0 2rem;
+  font-family: var(--font-body);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-heading);
+  color: var(--fp-paper);
+  font-weight: 400;
+  letter-spacing: -0.005em;
+}
+
+.approach__lead {
+  margin: 0;
+  font-size: var(--fs-18);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.approach__lead + .approach__lead {
+  margin-top: 1.25rem;
+}
+
+.approach__lead em {
+  font-style: italic;
+}
+
+.approach__pull {
+  display: grid;
+  gap: 1.25rem;
+  padding: 2rem 0 0;
+}
+
+@media (min-width: 900px) {
+  .approach__pull {
+    padding: 0.5rem 0 0 clamp(1rem, 3vw, 2rem);
+    border-left: 1px solid rgba(209, 155, 211, 0.35);
+    padding-left: clamp(1.5rem, 3vw, 2.5rem);
+  }
+}
+
+.approach__quote {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-display);
+  line-height: 0.95;
+  color: var(--fp-yellow);
+  letter-spacing: -0.01em;
+}
+
+.approach__quote small {
+  display: block;
+  margin-top: 2.5rem;
+  font-family: var(--font-body);
+  font-size: var(--fs-16);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.75);
+  font-style: normal;
+  letter-spacing: 0;
+  max-width: 24rem;
+}
+
+.approach__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.approach__list li {
+  position: relative;
+  padding-left: 1.75rem;
+  font-size: var(--fs-16);
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.approach__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55rem;
+  width: 10px;
+  height: 10px;
+  background: var(--fp-yellow);
+  border-radius: 50%;
+}
+
+.approach__rule {
+  border: none;
+  border-top: 1px solid var(--fp-yellow);
+  margin: 0.5rem 0 0;
+  opacity: 0.6;
+}
+
+.approach__pull .approach__lead {
+  font-size: var(--fs-16);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.approach__pull .approach__lead + .approach__lead {
+  margin-top: 1rem;
+}
+
+.approach__deco {
+  position: absolute;
+  right: -60px;
+  bottom: -60px;
+  width: 340px;
+  height: auto;
+  opacity: 0.15;
+  color: var(--fp-magenta-soft);
+  pointer-events: none;
+  z-index: 0;
+}

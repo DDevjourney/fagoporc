@@ -1,0 +1,108 @@
+.pathogens {
+  background: var(--fp-paper-soft);
+  border-block: 1px solid var(--fp-hairline);
+}
+
+.pathogens__intro {
+  max-width: 44rem;
+  margin: 0 auto clamp(3rem, 5vw, 4.5rem);
+  text-align: left;
+}
+
+.pathogens__eyebrow {
+  margin: 0 0 1rem;
+}
+
+.pathogens__title {
+  margin: 0 0 1.25rem;
+  font-family: var(--font-body);
+  font-size: var(--fs-h2);
+  line-height: var(--lh-heading);
+  color: var(--fp-plum);
+  font-weight: 400;
+  letter-spacing: -0.005em;
+}
+
+.pathogens__lead {
+  margin: 0;
+  font-size: var(--fs-18);
+  line-height: 1.6;
+  color: var(--fp-ink-soft);
+}
+
+.pathogens__list {
+  display: grid;
+  gap: clamp(2rem, 4vw, 3rem);
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 820px) {
+  .pathogens__list {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.pathogen {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 1.5rem;
+  padding: 2rem 1.75rem 2.25rem;
+  background: var(--fp-paper);
+  border: 1px solid var(--fp-hairline);
+  border-top: 3px solid var(--fp-yellow);
+  border-radius: 2px 2px var(--radius-md) var(--radius-md);
+}
+
+.pathogen__figure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 160px;
+  padding: 1rem;
+}
+
+.pathogen__figure svg {
+  width: 100%;
+  height: auto;
+  max-width: 280px;
+  max-height: 160px;
+}
+
+.pathogen__name {
+  margin: 0 0 0.75rem;
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: var(--fs-h3);
+  line-height: 1.2;
+  color: var(--fp-plum);
+  font-weight: 400;
+  letter-spacing: -0.005em;
+}
+
+.pathogen__desc {
+  margin: 0 0 1.5rem;
+  font-size: var(--fs-16);
+  line-height: 1.6;
+  color: var(--fp-ink);
+}
+
+.pathogen__meta {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  column-gap: 1.25rem;
+  row-gap: 0.6rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--fp-hairline);
+  font-size: var(--fs-14);
+}
+
+.pathogen__meta dt {
+  color: var(--fp-magenta);
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+
+.pathogen__meta dd {
+  margin: 0;
+  color: var(--fp-ink);
+}
