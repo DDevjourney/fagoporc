@@ -1,11 +1,5 @@
-import logo from '../assets/Logos_Fagoporc-01-removebg.png'
-
-const LINKS = [
-  { href: 'index.html', label: 'Inicio', key: 'inicio', ready: true },
-  { href: 'objetivos.html', label: 'Objetivos', key: 'objetivos', ready: false },
-  { href: 'resultados.html', label: 'Resultados', key: 'resultados', ready: false },
-  { href: 'participantes.html', label: 'Participantes', key: 'participantes', ready: false },
-]
+import logo from '../assets/Logos_Fagoporc-02-cropped.png'
+import { NAV_LINKS } from '../nav.js'
 
 export function renderHeader(container, { current = 'inicio' } = {}) {
   if (!container) throw new Error('renderHeader: container is required')
@@ -14,37 +8,56 @@ export function renderHeader(container, { current = 'inicio' } = {}) {
   container.innerHTML = `
     <div class="wrap header__inner">
       <a href="index.html" class="header__logo" aria-label="Fagoporc — inicio">
-        <img src="${logo}" alt="" width="228" height="65">
+        <img src="${logo}" alt="" width="392" height="181">
       </a>
 
-      <nav class="header__nav" aria-label="Principal">
-        ${LINKS.map(({ href, label, key, ready }) => {
-          const isCurrent = key === current
-          const cls = `header__link${ready ? '' : ' header__link--disabled'}`
-          const aria = isCurrent ? ' aria-current="page"' : ''
-          const disabled = ready ? '' : ' aria-disabled="true" title="Próximamente"'
-          const hrefAttr = ready ? `href="${href}"` : ''
-          const tag = ready ? 'a' : 'span'
-          return `<${tag} ${hrefAttr} class="${cls}"${aria}${disabled}>${label}</${tag}>`
+      <nav class="header__nav" id="nav-principal" aria-label="Principal">
+        ${NAV_LINKS.map(({ href, label, key }) => {
+          const aria = key === current ? ' aria-current="page"' : ''
+          return `<a href="${href}" class="header__link"${aria}>${label}</a>`
         }).join('')}
       </nav>
 
-      <button class="header__toggle" type="button" aria-label="Abrir menú" aria-expanded="false">
+      <button class="header__toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="nav-principal">
         <span></span><span></span>
       </button>
     </div>
   `
 
   const toggle = container.querySelector('.header__toggle')
-  toggle.addEventListener('click', () => {
-    const isOpen = container.classList.toggle('is-open')
-    toggle.setAttribute('aria-expanded', String(isOpen))
-    toggle.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú')
+  const nav = container.querySelector('.header__nav')
+
+  const setMenu = (open) => {
+    container.classList.toggle('is-open', open)
+    toggle.setAttribute('aria-expanded', String(open))
+    toggle.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú')
+    document.body.style.overflow = open ? 'hidden' : ''
+  }
+
+  const isOpen = () => container.classList.contains('is-open')
+
+  toggle.addEventListener('click', () => setMenu(!isOpen()))
+
+  nav.addEventListener('click', (e) => {
+    if (e.target.closest('a')) setMenu(false)
   })
 
-  const setStuck = () => {
-    container.classList.toggle('is-stuck', window.scrollY > 24)
-  }
-  setStuck()
-  window.addEventListener('scroll', setStuck, { passive: true })
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isOpen()) {
+      setMenu(false)
+      toggle.focus()
+    }
+  })
+
+  // The open panel covers the page, so focus reaching anything behind it means
+  // the user has tabbed past the menu — close it rather than trap them.
+  document.addEventListener('focusin', (e) => {
+    if (isOpen() && !container.contains(e.target)) setMenu(false)
+  })
+
+  const desktop = window.matchMedia('(min-width: 721px)')
+  desktop.addEventListener('change', (e) => {
+    if (e.matches) setMenu(false)
+  })
+
 }

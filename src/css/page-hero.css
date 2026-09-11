@@ -1,0 +1,29 @@
+.page-hero {
+  padding-top: clamp(3rem, 6vw, 5rem);
+  padding-bottom: clamp(2rem, 4vw, 3.5rem);
+  background: var(--fp-paper);
+  border-bottom: 1px solid var(--fp-hairline);
+}
+
+.page-hero__label {
+  margin: 0 0 1rem;
+}
+
+.page-hero__title {
+  margin: 0 0 1rem;
+  font-family: var(--font-body);
+  font-size: var(--fs-h1);
+  line-height: var(--lh-heading);
+  letter-spacing: -0.01em;
+  color: var(--fp-plum);
+  font-weight: 400;
+  max-width: 20ch;
+}
+
+.page-hero__lead {
+  margin: 0;
+  font-size: var(--fs-18);
+  line-height: 1.55;
+  color: var(--fp-ink-soft);
+  max-width: 56ch;
+}

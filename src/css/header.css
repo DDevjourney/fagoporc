@@ -1,13 +1,16 @@
 .header {
-  position: fixed;
-  inset: 0 0 auto 0;
+  position: relative;
   z-index: 100;
   height: var(--header-h);
   display: flex;
   align-items: center;
-  background: transparent;
+  background: var(--fp-plum-deep);
   transition: background-color var(--dur) var(--ease),
     box-shadow var(--dur) var(--ease);
+}
+
+.header--hero {
+  background: transparent;
 }
 
 .header__inner {
@@ -26,56 +29,37 @@
 }
 
 .header__logo img {
-  height: 52px;
+  height: 64px;
   width: auto;
+  transition: filter var(--dur) var(--ease);
 }
+
 
 .header__nav {
   display: flex;
   align-items: center;
-  gap: clamp(1.25rem, 2.4vw, 2rem);
+  gap: 0;
   margin-left: auto;
 }
 
 .header__link {
   position: relative;
   font-size: var(--fs-14);
-  color: var(--fp-plum);
-  padding-block: 0.25rem;
-  transition: color var(--dur-fast) var(--ease), opacity var(--dur-fast) var(--ease);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 0.75rem clamp(0.75rem, 1.2vw, 1.25rem);
+  border-bottom: 4px solid transparent;
+  transition: color var(--dur-fast) var(--ease),
+    border-color var(--dur) var(--ease);
 }
 
-.header__link::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  height: 2px;
-  background: var(--fp-yellow);
-  transform: scaleX(0);
-  transform-origin: right center;
-  transition: transform var(--dur) var(--ease);
+.header__link[aria-current='page'] {
+  border-bottom-color: var(--fp-yellow);
 }
 
-.header__link:hover::after,
-.header__link[aria-current='page']::after {
-  transform: scaleX(1);
-  transform-origin: left center;
-}
-
-.header__link--disabled {
-  color: var(--fp-ink-soft);
-  opacity: 0.55;
-  cursor: default;
-  pointer-events: none;
-}
 
 .header.is-stuck {
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 1px 0 var(--fp-hairline);
+  background: var(--fp-plum-deep);
+  box-shadow: 0 2px 12px rgba(43, 36, 74, 0.3);
 }
 
 .header__toggle {
@@ -92,9 +76,11 @@
   left: 25%;
   right: 25%;
   height: 2px;
-  background: var(--fp-plum);
-  transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
+  background: rgba(255, 255, 255, 0.9);
+  transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease),
+    background var(--dur) var(--ease);
 }
+
 
 .header__toggle span:nth-child(1) { top: 34%; }
 .header__toggle span:nth-child(2) { bottom: 34%; }

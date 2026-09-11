@@ -1,0 +1,64 @@
+.cta-band {
+  background: var(--fp-paper);
+}
+
+.cta-band__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media (min-width: 720px) {
+  .cta-band__grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+}
+
+.cta-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.5rem;
+  background: var(--fp-paper-soft);
+  border: 1px solid var(--fp-hairline);
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  color: var(--fp-ink);
+  transition: border-color var(--dur) var(--ease),
+    box-shadow var(--dur) var(--ease);
+}
+
+.cta-card:hover,
+.cta-card:focus-visible {
+  border-color: var(--fp-plum);
+  box-shadow: 0 2px 12px rgba(89, 50, 96, 0.1);
+}
+
+.cta-card__title {
+  margin: 0;
+  font-family: var(--font-body);
+  font-size: var(--fs-20);
+  font-weight: 400;
+  color: var(--fp-plum);
+  line-height: 1.2;
+}
+
+.cta-card__desc {
+  margin: 0;
+  font-size: var(--fs-14);
+  line-height: 1.5;
+  color: var(--fp-ink-soft);
+  flex: 1;
+}
+
+.cta-card__action {
+  font-size: var(--fs-18);
+  color: var(--fp-plum);
+  transition: transform var(--dur-fast) var(--ease);
+  align-self: flex-end;
+}
+
+.cta-card:hover .cta-card__action {
+  transform: translateX(4px);
+}

@@ -5,9 +5,12 @@
 }
 
 html {
-  visibility: visible;
-  opacity: 1;
   scroll-behavior: smooth;
+}
+
+:target,
+[id] {
+  scroll-margin-top: 1rem;
 }
 
 body {
@@ -19,6 +22,19 @@ body {
   background: var(--fp-paper);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+}
+
+body.is-loading > :not(.page-loader) {
+  opacity: 0;
+}
+
+body:not(.is-loading) > :not(.page-loader) {
+  animation: reveal 400ms var(--ease) both;
+}
+
+@keyframes reveal {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 img,
@@ -47,6 +63,60 @@ button {
   color: var(--fp-ink);
 }
 
+/* Visible keyboard focus for everything, everywhere. Components may restyle
+   the ring but must never remove it. */
+:focus-visible {
+  outline: 3px solid var(--fp-plum);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Plum has no contrast against the dark surfaces, so the ring flips to yellow. */
+.approach :focus-visible,
+.marco :focus-visible,
+.footer :focus-visible,
+.noscript-nav :focus-visible {
+  outline-color: var(--fp-yellow);
+}
+
+main:focus {
+  outline: none;
+}
+
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 200;
+  transform: translateY(-120%);
+  padding: 0.85rem 1.35rem;
+  background: var(--fp-plum);
+  color: var(--fp-paper);
+  font-size: var(--fs-14);
+  border-bottom-right-radius: var(--radius-sm);
+  transition: transform var(--dur-fast) var(--ease);
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+.noscript-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  padding: 1rem var(--wrap-pad);
+  background: var(--fp-plum);
+  color: var(--fp-paper);
+  font-size: var(--fs-14);
+}
+
+.noscript-nav a {
+  color: var(--fp-paper);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .wrap {
   max-width: var(--wrap-max);
   margin-inline: auto;
@@ -57,17 +127,74 @@ button {
   padding-block: var(--section-y);
 }
 
+/* Colour comes from an inherited custom property, not a direct declaration, so
+   a section can retint its labels by setting --label-color on any ancestor.
+   A plain `.x__label { color: … }` would tie with `.label` on specificity and
+   win or lose purely on stylesheet order. */
 .label {
   font-size: var(--fs-12);
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--fp-magenta);
+  color: var(--label-color, var(--fp-magenta-ink));
   font-weight: 400;
+}
+
+/* Dark surfaces: magenta has no contrast there, so labels turn yellow. */
+.approach,
+.marco {
+  --label-color: var(--fp-yellow);
 }
 
 em,
 i {
   font-style: italic;
+}
+
+/* --- Page transition loader ---------------------------------------------- */
+.page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--fp-paper);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 600ms var(--ease);
+}
+
+.page-loader.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lds-dual-ring,
+.lds-dual-ring:after {
+  box-sizing: border-box;
+}
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
+
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6.4px solid currentColor;
+  border-color: var(--fp-plum) transparent var(--fp-plum) transparent;
+  animation: lds-dual-ring 1.2s linear infinite;
+}
+
+@keyframes lds-dual-ring {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
 
 @media (prefers-reduced-motion: reduce) {

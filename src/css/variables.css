@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'Carmen Sans';
-  src: url('./CarmenSans-Regular.woff2') format('woff2');
+  src: url('../assets/fonts/CarmenSans-Regular.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: 'Bubbleboy2';
-  src: url('./BubbleBoy2 V1.woff2') format('woff2');
+  src: url('../assets/fonts/BubbleBoy.woff2') format('woff2');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -19,6 +19,10 @@
   --fp-plum-deep: #43244a;
   --fp-magenta: #b151b4;
   --fp-magenta-soft: #d19bd3;
+  /* Brand magenta hits only 4.17:1 on paper-soft, short of the 4.5:1 that the
+     12-14px labels need. Darkened variant for small text; --fp-magenta stays
+     the brand value for fills, rules and illustration. */
+  --fp-magenta-ink: #9e40a1;
   --fp-yellow: #ffc600;
 
   --fp-ink: #2a1a2f;
