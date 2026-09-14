@@ -20,8 +20,10 @@ function sharedShell() {
         },
         {
           tag: 'link',
-          // Relative to match base:'./' — injected tags skip Vite's URL rewriting.
-          attrs: { rel: 'icon', type: 'image/png', href: './src/assets/favicon-escudo.png' },
+          // Sirve desde public/ (Vite copia public/* a la raíz de dist sin
+          // hashing). Los tags inyectados no pasan por el URL rewriting de
+          // Vite, así que apuntar a src/assets/… fallaba en build.
+          attrs: { rel: 'icon', type: 'image/png', href: './favicon-escudo.png' },
           injectTo: 'head',
         },
         {

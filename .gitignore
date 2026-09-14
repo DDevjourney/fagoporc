@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Reference material (brand assets, identity docs) — not part of the build
+docs/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

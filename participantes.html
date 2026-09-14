@@ -9,7 +9,7 @@
       content="Consorcio del Grupo Operativo Fagoporc: CTAEX, Ibergenética Extremeña y Piensos Costa, con financiación PEPAC del MAPA."
     />
     <link rel="preload" href="/src/assets/fonts/CarmenSans-Regular.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/src/assets/fonts/BubbleBoy.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/src/assets/fonts/Bubbleboy.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/src/css/variables.css" />
     <link rel="stylesheet" href="/src/css/base.css" />
     <link rel="stylesheet" href="/src/css/header.css" />
@@ -18,32 +18,21 @@
     <link rel="stylesheet" href="/src/css/participantes.css" />
   </head>
 
-  <body class="is-loading">
+  <body>
 
     <header class="header"></header>
 
     <main id="contenido" tabindex="-1">
       <section class="page-hero">
         <figure class="page-hero__media">
-          <picture>
-            <source
-              media="(min-width: 900px)"
-              srcset="/src/assets/hero-cerdos.webp"
-              type="image/webp"
-            />
-            <source
-              media="(min-width: 900px)"
-              srcset="/src/assets/hero-cerdos.jpg"
-              type="image/jpeg"
-            />
-            <source srcset="/src/assets/hero-cerdos-sm.webp" type="image/webp" />
-            <img
-              src="/src/assets/hero-cerdos-sm.jpg"
-              alt=""
-              width="1600"
-              height="1066"
-            />
-          </picture>
+          <img
+            src="/src/assets/img-hero.webp"
+            alt=""
+            width="1600"
+            height="1066"
+            fetchpriority="high"
+            decoding="async"
+          />
         </figure>
 
         <div class="wrap">
@@ -58,7 +47,7 @@
             </div>
             <p class="page-hero__lead">
               Un centro tecnológico y dos empresas del sector porcino que
-              recorren el ciclo completo, del fago al cebadero.
+              recorren el ciclo completo, del fago al cebadero
             </p>
           </div>
         </div>

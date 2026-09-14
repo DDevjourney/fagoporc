@@ -4,9 +4,9 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+/* El smooth scroll lo gestiona Lenis (src/lib/smoothScroll.js). Bajo
+   prefers-reduced-motion no se inicializa y el scroll queda instantáneo,
+   que es lo que la propia media query pide. */
 
 :target,
 [id] {
@@ -25,18 +25,8 @@ body {
   overflow-x: hidden;
 }
 
-body.is-loading > :not(.page-loader) {
-  opacity: 0;
-}
-
-body:not(.is-loading) > :not(.page-loader) {
-  animation: reveal 400ms var(--ease) both;
-}
-
-@keyframes reveal {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
+/* No ocultamos el contenido antes del JS: el HTML pinta inmediatamente y
+   evitamos que el LCP dependa de descargar/ejecutar el bundle. */
 
 img,
 svg,
@@ -166,6 +156,12 @@ i {
 .page-loader.is-active {
   opacity: 1;
   pointer-events: auto;
+}
+
+/* Aplicado por JS sólo el frame en que el loader entrante nace ya visible,
+   para que no dispare el fade-in del navegador antes del fade-out. */
+.page-loader.no-transition {
+  transition: none;
 }
 
 .lds-dual-ring,

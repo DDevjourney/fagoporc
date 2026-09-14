@@ -1,4 +1,4 @@
-import logo from '../assets/Logos_Fagoporc-02-cropped.png'
+import logo from '../assets/logo-fagoporc.png'
 import { NAV_LINKS } from '../nav.js'
 
 export function renderHeader(container, { current = 'inicio' } = {}) {

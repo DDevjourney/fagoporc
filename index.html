@@ -9,7 +9,7 @@
       content="Grupo Operativo Supraautonómico dedicado al aislamiento y validación de cócteles fágicos como alternativa a los antibióticos en producción porcina."
     />
     <link rel="preload" href="/src/assets/fonts/CarmenSans-Regular.woff2" as="font" type="font/woff2" crossorigin />
-    <link rel="preload" href="/src/assets/fonts/BubbleBoy.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/src/assets/fonts/Bubbleboy.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="stylesheet" href="/src/css/variables.css" />
     <link rel="stylesheet" href="/src/css/base.css" />
     <link rel="stylesheet" href="/src/css/header.css" />
@@ -20,32 +20,21 @@
     <link rel="stylesheet" href="/src/css/cta-band.css" />
   </head>
 
-  <body class="is-loading">
+  <body>
 
     <header class="header"></header>
 
     <main id="contenido" tabindex="-1">
       <section class="hero" id="inicio">
         <figure class="hero__media">
-          <picture>
-            <source
-              media="(min-width: 900px)"
-              srcset="/src/assets/hero-cerdos.webp"
-              type="image/webp"
-            />
-            <source
-              media="(min-width: 900px)"
-              srcset="/src/assets/hero-cerdos.jpg"
-              type="image/jpeg"
-            />
-            <source srcset="/src/assets/hero-cerdos-sm.webp" type="image/webp" />
-            <img
-              src="/src/assets/hero-cerdos-sm.jpg"
-              alt="Dos cerdos, uno de capa rosada y otro oscura, sobre hierba en una explotación al aire libre"
-              width="1600"
-              height="1066"
-            />
-          </picture>
+          <img
+            src="/src/assets/img-hero.webp"
+            alt="Dos cerdos, uno de capa rosada y otro oscura, sobre hierba en una explotación al aire libre"
+            width="1600"
+            height="1066"
+            fetchpriority="high"
+            decoding="async"
+          />
         </figure>
 
         <div class="wrap hero__body">
@@ -81,7 +70,7 @@
           <div class="pathogens__list">
             <article class="pathogen">
               <div class="pathogen__figure">
-                <img src="" alt="Escherichia coli vista al microscopio">
+                <img src="/src/assets/img-ecolli.jpeg" alt="Escherichia coli vista al microscopio" loading="lazy" decoding="async" width="120" height="120">
               </div>
               <div>
                 <h3 class="pathogen__name">Escherichia coli</h3>
@@ -94,7 +83,7 @@
 
             <article class="pathogen">
               <div class="pathogen__figure">
-                <img src="" alt="Salmonella vista al microscopio">
+                <img src="/src/assets/img-salmonella.jpeg" alt="Salmonella vista al microscopio" loading="lazy" decoding="async" width="120" height="120">
               </div>
               <div>
                 <h3 class="pathogen__name">Salmonella</h3>

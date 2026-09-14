@@ -1,5 +1,6 @@
-import fagoLogo from '../assets/Logos_Fagoporc-02-cropped.png'
+import fagoLogo from '../assets/logo-fagoporc.png'
 import { NAV_LINKS } from '../nav.js'
+import { scrollToTop } from '../lib/smoothScroll.js'
 
 const LEGAL = [
   { label: 'Aviso legal', href: 'https://observatorioagroalimentario.com/proyectos/GOS/aviso-legal' },
@@ -44,7 +45,5 @@ export function renderFooter(container) {
   `
 
   const topBtn = container.querySelector('.footer__top-btn')
-  topBtn.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
-  })
+  topBtn.addEventListener('click', () => scrollToTop())
 }
