@@ -21,7 +21,7 @@ function sharedShell() {
         {
           tag: 'link',
           // Relative to match base:'./' — injected tags skip Vite's URL rewriting.
-          attrs: { rel: 'icon', type: 'image/svg+xml', href: './favicon.svg' },
+          attrs: { rel: 'icon', type: 'image/png', href: './src/assets/favicon-escudo.png' },
           injectTo: 'head',
         },
         {

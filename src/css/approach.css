@@ -94,8 +94,8 @@
 
 .approach__list li {
   position: relative;
-  padding-left: 1.75rem;
-  font-size: var(--fs-16);
+  padding-left: 2rem;
+  font-size: var(--fs-18);
   line-height: 1.55;
   color: rgba(255, 255, 255, 0.9);
 }
@@ -104,9 +104,9 @@
   content: '';
   position: absolute;
   left: 0;
-  top: 0.55rem;
-  width: 10px;
-  height: 10px;
+  top: 0.6rem;
+  width: 14px;
+  height: 14px;
   background: var(--fp-yellow);
   border-radius: 50%;
 }
@@ -119,9 +119,9 @@
 }
 
 .approach__pull .approach__lead {
-  font-size: var(--fs-16);
-  line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
+  font-size: var(--fs-18);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.85);
 }
 
 .approach__pull .approach__lead + .approach__lead {
@@ -130,12 +130,20 @@
 
 .approach__deco {
   position: absolute;
-  right: -60px;
-  bottom: -60px;
-  width: 340px;
+  right: -40px;
+  bottom: -40px;
+  width: 220px;
   height: auto;
   opacity: 0.15;
   color: var(--fp-magenta-soft);
   pointer-events: none;
   z-index: 0;
+}
+
+@media (min-width: 720px) {
+  .approach__deco {
+    right: -60px;
+    bottom: -60px;
+    width: 340px;
+  }
 }

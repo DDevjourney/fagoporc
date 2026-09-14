@@ -1,29 +1,121 @@
 .page-hero {
-  padding-top: clamp(3rem, 6vw, 5rem);
-  padding-bottom: clamp(2rem, 4vw, 3.5rem);
-  background: var(--fp-paper);
-  border-bottom: 1px solid var(--fp-hairline);
+  position: relative;
+  min-height: 58vh;
+  display: flex;
+  align-items: flex-end;
+  overflow: hidden;
+  color: var(--fp-paper);
+  background: var(--fp-plum-deep);
 }
 
-.page-hero__label {
-  margin: 0 0 1rem;
+.page-hero__media {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  z-index: 0;
+}
+
+.page-hero__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 45%;
+}
+
+.page-hero__media::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(43, 36, 74, 0.55) 0%,
+    rgba(43, 36, 74, 0.75) 55%,
+    rgba(43, 36, 74, 0.88) 100%
+  );
+}
+
+.page-hero > .wrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding-top: clamp(3rem, 8vw, 6rem);
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.page-hero__body {
+  display: grid;
+  gap: 2rem;
+  align-items: end;
+}
+
+@media (min-width: 900px) {
+  .page-hero__body {
+    grid-template-columns: 7fr 5fr;
+    gap: clamp(3rem, 6vw, 5rem);
+  }
+}
+
+.page-hero__intro {
+  display: flex;
+  flex-direction: column;
+}
+
+.page-hero__crumbs {
+  margin: 0 0 clamp(0.35rem, 1vw, 0.6rem);
+  font-size: var(--fs-12);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.page-hero__crumbs a {
+  color: inherit;
+  transition: color var(--dur-fast) var(--ease);
+}
+
+.page-hero__crumbs a:hover,
+.page-hero__crumbs a:focus-visible {
+  color: var(--fp-yellow);
+}
+
+.page-hero__crumbs span[aria-current='page'] {
+  color: var(--fp-paper);
+}
+
+.page-hero__sep {
+  display: inline-block;
+  margin: 0 0.6em;
+  color: rgba(255, 255, 255, 0.4);
 }
 
 .page-hero__title {
-  margin: 0 0 1rem;
+  margin: 0;
   font-family: var(--font-body);
-  font-size: var(--fs-h1);
-  line-height: var(--lh-heading);
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  line-height: 1.05;
   letter-spacing: -0.01em;
-  color: var(--fp-plum);
-  font-weight: 400;
-  max-width: 20ch;
+  color: var(--fp-paper);
+  font-weight: 500;
+}
+
+.page-hero__title em {
+  font-style: italic;
 }
 
 .page-hero__lead {
   margin: 0;
-  font-size: var(--fs-18);
-  line-height: 1.55;
-  color: var(--fp-ink-soft);
-  max-width: 56ch;
+  font-size: var(--fs-16);
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.88);
+  max-width: 42ch;
+}
+
+.page-hero__lead em {
+  font-style: italic;
+}
+
+@media (min-width: 900px) {
+  .page-hero__lead {
+    padding-bottom: 0.6rem;
+  }
 }

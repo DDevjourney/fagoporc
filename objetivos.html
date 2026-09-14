@@ -1,7 +1,9 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <title>Objetivos — Fagoporc</title>
+    <title>Objetivos</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
       content="Objetivo general y los seis objetivos específicos del G.O. Fagoporc: desarrollar, validar y transferir bacteriófagos frente a E. coli y Salmonella spp. en las fases de transición y cebo."
@@ -22,17 +24,43 @@
 
     <main id="contenido" tabindex="-1">
       <section class="page-hero">
+        <figure class="page-hero__media">
+          <picture>
+            <source
+              media="(min-width: 900px)"
+              srcset="/src/assets/hero-cerdos.webp"
+              type="image/webp"
+            />
+            <source
+              media="(min-width: 900px)"
+              srcset="/src/assets/hero-cerdos.jpg"
+              type="image/jpeg"
+            />
+            <source srcset="/src/assets/hero-cerdos-sm.webp" type="image/webp" />
+            <img
+              src="/src/assets/hero-cerdos-sm.jpg"
+              alt=""
+              width="1600"
+              height="1066"
+            />
+          </picture>
+        </figure>
+
         <div class="wrap">
-          <p class="label page-hero__label">Objetivo general</p>
-          <h1 class="page-hero__title">
-            Desarrollar, validar y transferir el uso de bacteriófagos específicos
-            frente a <em>E. coli</em> y <em>Salmonella</em> en porcino.
-          </h1>
-          <p class="page-hero__lead">
-            El proyecto se centra en las fases de transición y cebo del ganado
-            porcino, con el propósito de disponer de una herramienta adicional
-            frente al problema de la resistencia bacteriana a los antibióticos.
-          </p>
+          <div class="page-hero__body">
+            <div class="page-hero__intro">
+              <nav class="page-hero__crumbs" aria-label="Migas de pan">
+                <a href="index.html">Inicio</a>
+                <span class="page-hero__sep" aria-hidden="true">/</span>
+                <span aria-current="page">Objetivos</span>
+              </nav>
+              <h1 class="page-hero__title">Objetivos</h1>
+            </div>
+            <p class="page-hero__lead">
+              Seis líneas de trabajo, desde la caracterización de cepas hasta
+              la validación en granja comercial.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -111,6 +139,8 @@
         </div>
       </section>
     </main>
+
+    <aside data-share></aside>
 
     <footer class="footer"></footer>
 

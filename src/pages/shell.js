@@ -2,9 +2,11 @@ import '../css/variables.css'
 import '../css/base.css'
 import '../css/header.css'
 import '../css/footer.css'
+import '../css/share.css'
 
 import { renderHeader } from '../components/header.js'
 import { renderFooter } from '../components/footer.js'
+import { renderShare } from '../components/share.js'
 
 function initLoader() {
   const loader = document.createElement('div')
@@ -31,6 +33,7 @@ function initLoader() {
 export function initPageShell(current) {
   renderHeader(document.querySelector('header'), { current })
   renderFooter(document.querySelector('footer'))
+  renderShare(document.querySelector('[data-share]'))
   initLoader()
   document.body.classList.remove('is-loading')
 }

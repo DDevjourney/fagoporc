@@ -48,21 +48,36 @@
 
 .pathogen {
   display: grid;
-  grid-template-columns: 5.5rem 1fr;
-  gap: 1rem;
-  padding: 1.25rem;
+  grid-template-columns: 4.25rem 1fr;
+  gap: 0.9rem;
+  padding: 1.1rem;
   background: var(--fp-paper);
   border: 1px solid var(--fp-hairline);
   border-left: 3px solid var(--fp-yellow);
   border-radius: 2px var(--radius-sm) var(--radius-sm) 2px;
 }
 
+@media (min-width: 480px) {
+  .pathogen {
+    grid-template-columns: 5.5rem 1fr;
+    gap: 1rem;
+    padding: 1.25rem;
+  }
+}
+
 .pathogen__figure {
-  width: 5.5rem;
-  height: 5.5rem;
+  width: 4.25rem;
+  height: 4.25rem;
   border-radius: var(--radius-sm);
   overflow: hidden;
   background: var(--fp-paper-soft);
+}
+
+@media (min-width: 480px) {
+  .pathogen__figure {
+    width: 5.5rem;
+    height: 5.5rem;
+  }
 }
 
 .pathogen__figure img {

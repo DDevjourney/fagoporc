@@ -122,5 +122,9 @@
   }
   .header__link {
     font-size: var(--fs-20);
+    color: var(--fp-plum);
+  }
+  .header__link[aria-current='page'] {
+    border-bottom-color: var(--fp-plum);
   }
 }

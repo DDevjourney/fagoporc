@@ -1,9 +1,15 @@
 .hero {
   position: relative;
-  min-height: 70vh;
+  min-height: 60vh;
   display: flex;
   align-items: flex-end;
   overflow: hidden;
+}
+
+@media (min-width: 720px) {
+  .hero {
+    min-height: 70vh;
+  }
 }
 
 /* Background image */
@@ -27,11 +33,22 @@
   position: absolute;
   inset: 0;
   background: linear-gradient(
-    to right,
-    rgba(43, 36, 74, 0.88) 0%,
-    rgba(43, 36, 74, 0.65) 50%,
-    rgba(43, 36, 74, 0.2) 100%
+    to bottom,
+    rgba(43, 36, 74, 0.35) 0%,
+    rgba(43, 36, 74, 0.75) 60%,
+    rgba(43, 36, 74, 0.9) 100%
   );
+}
+
+@media (min-width: 720px) {
+  .hero__media::after {
+    background: linear-gradient(
+      to right,
+      rgba(43, 36, 74, 0.88) 0%,
+      rgba(43, 36, 74, 0.65) 50%,
+      rgba(43, 36, 74, 0.2) 100%
+    );
+  }
 }
 
 /* Text content */

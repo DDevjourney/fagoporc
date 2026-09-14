@@ -1,0 +1,70 @@
+.share {
+  border-top: 1px solid var(--fp-hairline);
+  padding-block: clamp(1.25rem, 3vw, 1.75rem);
+  background: var(--fp-paper);
+}
+
+.share__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.share__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0;
+  font-size: var(--fs-12);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--fp-ink-soft);
+  font-weight: 400;
+}
+
+.share__label svg {
+  width: 14px;
+  height: 14px;
+  color: var(--fp-magenta-ink);
+}
+
+.share__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.share__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  color: #fff;
+  transition: transform var(--dur-fast) var(--ease),
+    filter var(--dur-fast) var(--ease);
+}
+
+.share__link:hover,
+.share__link:focus-visible {
+  transform: translateY(-2px);
+  filter: brightness(1.1);
+}
+
+.share__link svg {
+  width: 18px;
+  height: 18px;
+  fill: currentColor;
+}
+
+.share__link--facebook  { background: #2953a0; }
+.share__link--x         { background: #000000; }
+.share__link--whatsapp  { background: #1f7a5c; }
+.share__link--telegram  { background: #29b6f6; }
+.share__link--linkedin  { background: #1069b8; }

@@ -1,7 +1,9 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <title>Resultados esperados — Fagoporc</title>
+    <title>Resultados esperados</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
       content="Resultados esperados del proyecto Fagoporc: desde la colección de cepas hasta la validación de cócteles fágicos en condiciones reales de producción porcina."
@@ -22,18 +24,43 @@
 
     <main id="contenido" tabindex="-1">
       <section class="page-hero">
+        <figure class="page-hero__media">
+          <picture>
+            <source
+              media="(min-width: 900px)"
+              srcset="/src/assets/hero-cerdos.webp"
+              type="image/webp"
+            />
+            <source
+              media="(min-width: 900px)"
+              srcset="/src/assets/hero-cerdos.jpg"
+              type="image/jpeg"
+            />
+            <source srcset="/src/assets/hero-cerdos-sm.webp" type="image/webp" />
+            <img
+              src="/src/assets/hero-cerdos-sm.jpg"
+              alt=""
+              width="1600"
+              height="1066"
+            />
+          </picture>
+        </figure>
+
         <div class="wrap">
-          <p class="label page-hero__label">Resultados esperados</p>
-          <h1 class="page-hero__title">
-            Una solución basada en bacteriófagos frente a <em>E. coli</em> y
-            <em>Salmonella</em> en porcino.
-          </h1>
-          <p class="page-hero__lead">
-            Los resultados esperados del proyecto se orientan al desarrollo de
-            una alternativa que permita prevenir y controlar estas infecciones
-            en las explotaciones ganaderas, contribuyendo a reducir el uso de
-            antibióticos en producción animal.
-          </p>
+          <div class="page-hero__body">
+            <div class="page-hero__intro">
+              <nav class="page-hero__crumbs" aria-label="Migas de pan">
+                <a href="index.html">Inicio</a>
+                <span class="page-hero__sep" aria-hidden="true">/</span>
+                <span aria-current="page">Resultados</span>
+              </nav>
+              <h1 class="page-hero__title">Resultados</h1>
+            </div>
+            <p class="page-hero__lead">
+              Del banco de cepas al protocolo en granja: siete resultados que
+              validan la alternativa fágica.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -113,6 +140,8 @@
         </div>
       </section>
     </main>
+
+    <aside data-share></aside>
 
     <footer class="footer"></footer>
 
