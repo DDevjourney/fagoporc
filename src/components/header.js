@@ -55,7 +55,7 @@ export function renderHeader(container, { current = 'inicio' } = {}) {
     if (isOpen() && !container.contains(e.target)) setMenu(false)
   })
 
-  const desktop = window.matchMedia('(min-width: 721px)')
+  const desktop = window.matchMedia('(min-width: 720px)')
   desktop.addEventListener('change', (e) => {
     if (e.matches) setMenu(false)
   })

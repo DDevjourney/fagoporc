@@ -5,12 +5,6 @@
   display: flex;
   align-items: center;
   background: var(--fp-plum-deep);
-  transition: background-color var(--dur) var(--ease),
-    box-shadow var(--dur) var(--ease);
-}
-
-.header--hero {
-  background: transparent;
 }
 
 .header__inner {
@@ -57,11 +51,6 @@
 }
 
 
-.header.is-stuck {
-  background: var(--fp-plum-deep);
-  box-shadow: 0 2px 12px rgba(43, 36, 74, 0.3);
-}
-
 .header__toggle {
   display: none;
   width: 44px;
@@ -92,7 +81,10 @@
   transform: translateY(-6px) rotate(-45deg);
 }
 
-@media (max-width: 720px) {
+/* Móvil = todo lo que quede por debajo del breakpoint de 720px que usa el
+   resto del sitio con min-width. La sintaxis de rango evita que 720px exacto
+   caiga en ambos lados; el JS del header usa el mismo umbral (min-width: 720px). */
+@media (width < 720px) {
   .header__logo img {
     height: 40px;
   }

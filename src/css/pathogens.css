@@ -7,7 +7,7 @@
   display: grid;
   grid-template-columns: 1fr;
   gap: clamp(2rem, 4vw, 3rem);
-  align-items: start;
+  align-items: stretch;
 }
 
 @media (min-width: 900px) {
@@ -42,8 +42,16 @@
 }
 
 .pathogens__list {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 2.5rem;
+}
+
+@media (min-width: 900px) {
+  .pathogens__list {
+    justify-content: space-between;
+    height: 100%;
+  }
 }
 
 .pathogen {
@@ -66,11 +74,21 @@
 }
 
 .pathogen__figure {
+  position: relative;
   width: 5.5rem;
   height: 5.5rem;
   border-radius: var(--radius-sm);
   overflow: hidden;
-  background: var(--fp-paper-soft);
+  background: var(--fp-plum);
+}
+
+.pathogen__figure::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--fp-plum);
+  mix-blend-mode: color;
+  pointer-events: none;
 }
 
 @media (min-width: 480px) {

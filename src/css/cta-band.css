@@ -60,5 +60,5 @@
 }
 
 .cta-card:hover .cta-card__action {
-  transform: translateX(4px);
+  transform: translateX(8px);
 }

@@ -51,11 +51,12 @@
   }
 }
 
-/* Text content */
+/* Text content. El elemento comparte clase con .wrap: el ancho máximo lo pone
+   .wrap (--wrap-max) para que dev y dist coincidan, ya que si .hero__body
+   declara su propio max-width la cascada cambia según el orden de carga. */
 .hero__body {
   position: relative;
   z-index: 1;
-  max-width: 36rem;
   padding-top: clamp(4rem, 8vw, 7rem);
   padding-bottom: clamp(3rem, 6vw, 5rem);
 }
